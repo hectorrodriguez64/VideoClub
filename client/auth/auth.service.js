@@ -7,7 +7,8 @@ AuthService.$inject  = ['$auth','$state'];
 function AuthService($auth,$state){
 	var Auth = {
 		login:login,
-		logout:logout
+		logout:logout,
+		isAuthenticated: isAuthenticated
 
 	};
 
@@ -29,11 +30,18 @@ function AuthService($auth,$state){
 			$auth.logout()
 			.then(respose=>{
 				$state.go('main');
+				console.log("Salida Ok");
 			})
 		}
-
 	}
 
+	function isAuthenticated(){
+		if($auth.isAuthenticated()){
+			return true;
+		}else{
+			return false;
+		}
+	}
 
 	return Auth;
 
