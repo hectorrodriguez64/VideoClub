@@ -8,10 +8,10 @@ class NavbarController {
 		  }];
 
 		  this.isCollapsed = true;
-		 
-		 this.AuthService = AuthService; 	
+
+		 this.AuthService = AuthService;
   }
- 
+
 
 
 }

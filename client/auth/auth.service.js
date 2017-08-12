@@ -8,8 +8,9 @@ function AuthService($auth,$state){
 	var Auth = {
 		login:login,
 		logout:logout,
-		isAuthenticated: isAuthenticated
-
+		isAuthenticated: isAuthenticated,
+		isAdmin: isAdmin,
+		isUsuario: isUsuario
 	};
 
 	function login(user,collback){
@@ -38,6 +39,30 @@ function AuthService($auth,$state){
 	function isAuthenticated(){
 		if($auth.isAuthenticated()){
 			return true;
+		}else{
+			return false;
+		}
+	}
+
+	function isAdmin(){
+		if($auth.isAuthenticated()){
+			if($auth.getPayload().roles.indexOf("ADMIN") !== -1){
+				return true;
+			}else{
+				return false;
+			}
+		}else{
+			return false;
+		}
+	}
+
+	function isUsuario() {
+		if($auth.isAuthenticated()){
+			if($auth.getPayload().roles.indexOf("USER") !== -1){
+				return true;
+			}else{
+				return false;
+			}
 		}else{
 			return false;
 		}
