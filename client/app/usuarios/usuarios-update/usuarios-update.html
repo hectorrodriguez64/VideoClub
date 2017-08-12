@@ -1,0 +1,37 @@
+<h3>Usuarios Update</h3>
+
+<form name="userForm" ng-submit="vm.updateUser()">
+<label for="">Tipo Documento</label>
+	<input type="text" ng-model="vm.usuario.tipoDocumento.id">
+
+
+	<label for="">Documento</label>
+	<input type="text" ng-model="vm.usuario.numDocumento">
+
+<label for="">Apellidos</label>
+	<input type="text" ng-model="vm.usuario.apellidos">
+
+	<label for="">Nombres</label>
+	<input type="text" ng-model="vm.usuario.nombres">
+
+	<label for="">Email</label>
+	<input type="text" ng-model="vm.usuario.email">
+
+	
+	<label for="">Sexo</label>
+	<input type="text" ng-model="vm.usuario.sexo">
+
+	<label for="">Departamentos</label>
+
+	<select name="" id="" ng-model="vm.idDepartamento" ng-change="vm.getCiudades()">
+		<option ng-value="{{item.id}}" ng-repeat="item in vm.departamentos">{{item.nombre}}</option>
+	</select>
+
+	<label for="">Ciudad</label>
+	<select name="" id=""  ng-model="vm.usuario.ciudad.id">
+		<option ng-value="{{item.id}}" ng-repeat="item in vm.ciudades">{{item.nombre}}</option>
+	</select>
+
+<button type="submit">Actualizar</button>
+
+</form>
